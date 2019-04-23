@@ -13,6 +13,7 @@ public class Airport {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="airport_id")
 	private int airportId;
 	
 	@Column

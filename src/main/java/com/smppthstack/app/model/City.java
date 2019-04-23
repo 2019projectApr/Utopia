@@ -11,10 +11,11 @@ public class City {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="city_id")
 	private int cityId;
 	
 	@Column
-	private String cityName;
+	private String name;
 
 	@Column
 	private String country;
@@ -25,14 +26,6 @@ public class City {
 
 	public void setCityId(int cityId) {
 		this.cityId = cityId;
-	}
-
-	public String getCityName() {
-		return cityName;
-	}
-
-	public void setCityName(String cityName) {
-		this.cityName = cityName;
 	}
 
 	public String getCountry() {

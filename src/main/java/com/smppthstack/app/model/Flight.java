@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity(name="flight")
@@ -15,16 +14,13 @@ public class Flight {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="flight_id")
 	private Long flightId;
 	
-	@ManyToOne
-	@JoinColumn(name = "planeId" )
-	private Plane plane;
-	
-	@Column(name = "depDateTime")
+	@Column(name = "dep_dateTime")
 	private Date depDateTime;
 	
-	@Column(name = "arrDateTime")
+	@Column(name = "arr_dateTime")
 	private Date arrDateTime;
 	
 	@ManyToOne
@@ -33,14 +29,8 @@ public class Flight {
 	@ManyToOne
 	private Airport arrAirport;
 	
-	@Column(name = "flightNumb")
-	private String flightNum;
-	
-	// We need to define Enum
-	@Column(name = "flightStatus")
-	private String flightStatus;
-	
-	
+	@Column
+	private Integer capacity;
 
 	public Long getFlightId() {
 		return flightId;
@@ -48,14 +38,6 @@ public class Flight {
 
 	public void setFlightId(Long flightId) {
 		this.flightId = flightId;
-	}
-
-	public Plane getPlane() {
-		return plane;
-	}
-
-	public void setPlane(Plane plane) {
-		this.plane = plane;
 	}
 
 	public Date getDepDateTime() {
@@ -90,20 +72,12 @@ public class Flight {
 		this.arrAirport = arrAirport;
 	}
 
-	public String getFlightNum() {
-		return flightNum;
+	public Integer getCapacity() {
+		return capacity;
 	}
 
-	public void setFlightNum(String flightNum) {
-		this.flightNum = flightNum;
-	}
-
-	public String getFlightStatus() {
-		return flightStatus;
-	}
-
-	public void setFlightStatus(String flightStatus) {
-		this.flightStatus = flightStatus;
+	public void setCapacity(Integer capacity) {
+		this.capacity = capacity;
 	}
 	
 	

@@ -13,18 +13,16 @@ public class Ticket {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="ticket_id")
 	private Integer ticketId;
 	
 	@ManyToOne
-	@JoinColumn(name = "seatId" )
-	private Seat seat;
+	@JoinColumn(name = "user_id" )
+	private User user;
 	
 	@ManyToOne
-	@JoinColumn(name = "flightId" )
+	@JoinColumn(name = "flight_id" )
 	private Flight flight;
-	
-	@Column
-	private Integer price;
 
 	public Integer getTicketId() {
 		return ticketId;
@@ -34,12 +32,12 @@ public class Ticket {
 		this.ticketId = ticketId;
 	}
 
-	public Seat getSeat() {
-		return seat;
+	public User getUser() {
+		return user;
 	}
 
-	public void setSeat(Seat seat) {
-		this.seat = seat;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public Flight getFlight() {
@@ -50,13 +48,8 @@ public class Ticket {
 		this.flight = flight;
 	}
 
-	public Integer getPrice() {
-		return price;
-	}
-
-	public void setPrice(Integer price) {
-		this.price = price;
-	}
+	
+	
 	
 	
 	
