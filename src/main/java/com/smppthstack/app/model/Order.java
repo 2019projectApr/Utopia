@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
-@Entity
+@Entity(name="order")
 public class Order {
 
 	@Id
@@ -30,6 +30,7 @@ public class Order {
 	private Integer tranId;
 	@ManyToOne
 	private Integer empId;
+	
 	public Integer getOrderId() {
 		return orderId;
 	}

@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name="employee_position")
 public class Employee_Position {
 
 	@Id
@@ -14,6 +14,7 @@ public class Employee_Position {
 	private Integer positionId;
 	@Column
 	private String positionName;
+	
 	public Integer getPositionId() {
 		return positionId;
 	}

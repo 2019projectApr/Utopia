@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name="transaction")
 public class Transaction {
 
 	@Id
@@ -16,6 +16,7 @@ public class Transaction {
 	private String status;
 	@Column
 	private String paymentInfo;
+	
 	public Integer getTranId() {
 		return tranId;
 	}

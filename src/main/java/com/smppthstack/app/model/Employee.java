@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
-@Entity
+@Entity(name="employee")
 public class Employee {
 
 	@Id
@@ -23,6 +23,7 @@ public class Employee {
 	private String empEmail;
 	@OneToOne
 	private Integer positionId;
+	
 	public Integer getEmpId() {
 		return empId;
 	}
