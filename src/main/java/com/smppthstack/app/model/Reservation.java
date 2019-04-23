@@ -1,5 +1,6 @@
 package com.smppthstack.app.model;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -11,33 +12,34 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Employee {
+public class Reservation {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer empId;
+	private Integer resId;
 	
 	@Column
-	private String empName;
+	private String name;
 	
 	@Column
-	private String empUserName;
+	private String email;
 	
 	@Column
-	private String empPassword;
+	private String phone;
 	
 	@Column
-	private String empPhone;
+	private Date orderDate;
 	
 	@Column
-	private String empEmail;
+	private String confirmationNum;
 	
+	//If null, ordered by traveler himself
 	@ManyToOne
-	private EmployeePosition position;
+	private Employee employee;
 	
-	@OneToMany(mappedBy = "employee")
-	private List<Reservation> reservation;
-	
+	@OneToMany(mappedBy = "reservation")
+	private List<Transaction> transection;
+
 	
 	
 }

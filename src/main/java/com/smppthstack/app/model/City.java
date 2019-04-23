@@ -1,10 +1,13 @@
 package com.smppthstack.app.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class City {
@@ -18,6 +21,9 @@ public class City {
 
 	@Column
 	private String country;
+	
+	@OneToMany(mappedBy = "city")
+	private List<Airport> airports;
 
 	public int getCityId() {
 		return cityId;
@@ -42,7 +48,14 @@ public class City {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	
-	
+
+	public List<Airport> getAirports() {
+		return airports;
+	}
+
+	public void setAirports(List<Airport> airports) {
+		this.airports = airports;
+	}
+
 	
 }

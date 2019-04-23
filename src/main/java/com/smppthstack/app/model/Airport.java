@@ -1,11 +1,15 @@
 package com.smppthstack.app.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 
 @Entity
@@ -22,41 +26,14 @@ public class Airport {
 	private String airportName;
 	
 	@ManyToOne
+	@JoinColumn(name = "cityId" )
 	private City city;
-
-	public int getAirportId() {
-		return airportId;
-	}
-
-	public void setAirportId(int airportId) {
-		this.airportId = airportId;
-	}
-
-	public int getAirportCode() {
-		return airportCode;
-	}
-
-	public void setAirportCode(int airportCode) {
-		this.airportCode = airportCode;
-	}
-
-	public String getAirportName() {
-		return airportName;
-	}
-
-	public void setAirportName(String airportName) {
-		this.airportName = airportName;
-	}
-
-	public City getCity() {
-		return city;
-	}
-
-	public void setCity(City city) {
-		this.city = city;
-	}
 	
+	@OneToMany(mappedBy = "depAirport")
+	private List<Flight> depFlights;
 	
+	@OneToMany(mappedBy = "arrAirport")
+	private List<Flight> arrFlights;
 	
 
 }

@@ -1,10 +1,15 @@
 package com.smppthstack.app.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Plane {
@@ -13,37 +18,19 @@ public class Plane {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int planeId;
 	
-	
 	@Column
 	private int planeNumber;
 	
 	@Column
 	private boolean planeStatus;
-
-	public int getPlaneId() {
-		return planeId;
-	}
-
-	public void setPlaneId(int planeId) {
-		this.planeId = planeId;
-	}
-
-	public int getPlaneNumber() {
-		return planeNumber;
-	}
-
-	public void setPlaneNumber(int planeNumber) {
-		this.planeNumber = planeNumber;
-	}
-
-	public boolean isPlaneStatus() {
-		return planeStatus;
-	}
-
-	public void setPlaneStatus(boolean planeStatus) {
-		this.planeStatus = planeStatus;
-	}
 	
+	@ManyToOne
+	@JoinColumn (name = "typeId")
+	private PlaneType planeType;
 	
+	@OneToMany(mappedBy = "plane")
+	private List<Flight> flights;
+	
+
 	
 }
